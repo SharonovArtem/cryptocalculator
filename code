@@ -15,38 +15,43 @@ namespace dzkurs
             double startNum = 100;
             double endNum = 0;
 
-            
-                for (int i = 0; i < 100000; i++)
+
+            for (int i = 0; i < 10000; i++)
+            {
+                startNum = 100;
+                endNum = 0;
+                int k = 0;
+
+                for (int j = 0; j < 500; j++)
                 {
-                    startNum = 100;
-                    endNum = 0;
+                    rand = rnd.Next(0, 99);
 
-                    for (int j = 0; j < 500; j++)
+                    if (rand == 20 || rand == 30 || rand == 40 || rand == 50 || rand == 60 || rand == 70 || rand == 80 || rand == 90 || rand == 99 || rand == 51 || rand == 61 || rand == 71 || rand == 81 || rand == 91 || rand == 11)
                     {
-                        rand = rnd.Next(0, 99);
-
-                        if (rand == 20 || rand == 30 || rand == 40 || rand == 50 || rand == 60 || rand == 70 || rand == 80 || rand == 90 || rand == 99 || rand == 51 || rand == 61 || rand == 71 || rand == 81 || rand == 91 || rand == 11)
-                        {
-                            endNum = startNum * 1.09;
-                            startNum = endNum;
-                        }
-                        else if (rand == 0 || rand == 12 || rand == 22 || rand == 33 || rand == 44 || rand == 55 || rand == 66 || rand == 77 || rand == 88 || rand == 75 || rand == 25)
-                        {
-                            endNum = startNum * 0.82;
-                            startNum = endNum;
-                        }
-                        else
-                        {
-                            endNum = startNum * 1.04;
-                            startNum = endNum;
-                        }
+                        endNum = startNum * 1.09;
+                        startNum = endNum;
                     }
-                    sredPokazList.Add(startNum);
+                    else if (rand == 0 || rand == 12 || rand == 22 || rand == 33 || rand == 44 || rand == 55 || rand == 66 || rand == 77 || rand == 88 || rand == 75 || rand == 25)
+                    {
+                        endNum = startNum * 0.87;
+                        startNum = endNum;
+                    }
+                    else if (j % 30 == 0)
+                    {
+                        Console.WriteLine(startNum);
+                    }
+                    else
+                    {
+                        endNum = startNum * 1.04;
+                        startNum = endNum;
+                    }
                 }
-                double sredPokaz = sredPokazList.Average();
-                sredPokazOfSredPokazList.Add(sredPokaz);
+                sredPokazList.Add(endNum);
+            }
+            double sredPokaz = sredPokazList.Average();
+            sredPokazOfSredPokazList.Add(sredPokaz);
 
-                Console.WriteLine(sredPokaz);
+            Console.WriteLine(sredPokaz);
         }
     }
 }
