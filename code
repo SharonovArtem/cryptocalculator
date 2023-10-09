@@ -7,7 +7,7 @@ namespace dzkurs
     {
         static void Main(string[] args)
         {
-            List<double> sredPokazList = new List<double>();  
+            List<double> sredPokazList = new List<double>();
             List<double> sredPokazOfSredPokazList = new List<double>();
 
             Random rnd = new Random();
@@ -15,14 +15,13 @@ namespace dzkurs
             double startNum = 100;
             double endNum = 0;
 
-            for (int k = 0; k < 10000; k++)
-            {
+            
                 for (int i = 0; i < 100000; i++)
                 {
                     startNum = 100;
                     endNum = 0;
 
-                    for (int j = 0; j < 365; j++)
+                    for (int j = 0; j < 500; j++)
                     {
                         rand = rnd.Next(0, 99);
 
@@ -31,7 +30,7 @@ namespace dzkurs
                             endNum = startNum * 1.09;
                             startNum = endNum;
                         }
-                        else if (rand == 0 || rand == 12 || rand == 22 || rand == 33 || rand == 44 || rand == 55 || rand == 66 || rand == 77 || rand == 88 || rand == 75 || rand == 25 )
+                        else if (rand == 0 || rand == 12 || rand == 22 || rand == 33 || rand == 44 || rand == 55 || rand == 66 || rand == 77 || rand == 88 || rand == 75 || rand == 25)
                         {
                             endNum = startNum * 0.82;
                             startNum = endNum;
@@ -48,10 +47,6 @@ namespace dzkurs
                 sredPokazOfSredPokazList.Add(sredPokaz);
 
                 Console.WriteLine(sredPokaz);
-            }
-            double sredPokazOfSredPokaz = sredPokazOfSredPokazList.Average();
-
-            Console.WriteLine(sredPokazOfSredPokaz);
         }
     }
 }
